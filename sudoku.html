@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        /* with css reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        tr:first-child td {
+            border-top-color: black;
+        }
+
+        tr:nth-child(3n) td {
+            border-bottom-color: black;
+        }
+
+        td {
+            border: 1px solid lightgrey;
+            height: 40px;
+            width: 40px;
+        }
+
+        td:first-child {
+            border-left-color: black;
+        }
+
+        td:nth-child(3n) {
+            border-right-color: black;
+        }
+
+        input {
+            padding: 0;
+            text-align: center;
+            border: 0;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+        }
+
+        input:hover {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="sudoku">
+        <tbody>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+                <td><input type="number" value="" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" onclick="table_to_array('sudoku')">Guess the output</button>
+    <div id="output_table"></div>
+</body>
+<script>
+    function table_to_array(table_id) {
+        myData = document.getElementById(table_id).rows
+        my_liste = []
+        for (var i = 0; i < myData.length; i++) {
+            el = myData[i].children
+            my_el = []
+            for (var j = 0; j < el.length; j++) {
+                var gridVal = el[j].getElementsByTagName("input")[0].value?.toString();
+                my_el.push(gridVal || ".");
+            }
+            my_liste.push(my_el)
+
+        }
+        calculateSudoku(my_liste);
+    }
+    const calculateSudoku = (sud) => {
+        // const sud = [
+        //     ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+        //     ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+        //     [".", "9", "8", ".", ".", ".", ".", "6", "."],
+        //     ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+        //     ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+        //     ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+        //     [".", "6", ".", ".", ".", ".", "2", "8", "."],
+        //     [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+        //     [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+        // ];
+
+        const isPossible = (array, value) => {
+            return array.filter((item) => item === value.toString()).length === 0;
+        };
+        //  get col of array
+        const getArrayCol = (j) => {
+            const data = [];
+            for (var i = 0; i < 9; i++) {
+                data.push(sud[i][j]);
+            }
+            return data;
+        };
+        // get box of array
+        const getArrayBox = (row = 3, col = 3, args) => {
+            if (args[0] <= row && args[1] <= col) {
+                const data = [];
+                for (var i = row - 3; i < row; i++) {
+                    for (var j = col - 3; j < col; j++) {
+                        data.push(sud[i][j]);
+                    }
+                }
+                return data;
+            }
+            row = col === 9 ? row + 3 : row;
+            col = col === 9 ? 3 : col + 3;
+            return getArrayBox(row, col, args);
+        };
+        var find = 1;
+        var possibleVal = [];
+        // var sudokuRow = 2;
+        const findPossibility = (sudokuRow, find) => {
+            for (var sudokuCol = 0; sudokuCol < 9; sudokuCol++) {
+                if (
+                    sud[sudokuRow][sudokuCol] !== "." ||
+                    !isPossible(sud[sudokuRow], find) ||
+                    !isPossible(getArrayCol(sudokuCol), find) ||
+                    !isPossible(getArrayBox(3, 3, [sudokuRow + 1, sudokuCol + 1]), find)
+                ) {
+                    continue;
+                }
+                possibleVal.push({
+                    row: sudokuRow,
+                    col: sudokuCol,
+                });
+            }
+            if (possibleVal.length === 1) {
+                sud[possibleVal[0].row][possibleVal[0].col] = find.toString();
+                possibleVal = [];
+                return true;
+            }
+            possibleVal = [];
+            return false;
+        };
+        const updateUponFindings = (sudokuRow) => {
+            while (find <= 9) {
+                findPossibility(sudokuRow, find);
+                find++;
+            }
+            find = 1;
+        };
+
+        const runSudoku = (runFromRow) => {
+            for (var sudokuRow = runFromRow; sudokuRow < 9; sudokuRow++) {
+                updateUponFindings(sudokuRow, find);
+            }
+        };
+        const validateSudoku = (isValid) => {
+            for (var i = 0; i < 9; i++) {
+                for (var j = 0; j < 9; j++) {
+                    if (sud[i][j] !== ".") continue;
+                    runSudoku(i);
+                    isValid = false;
+                }
+            }
+            if (isValid) {
+                document.getElementById("output_table").innerHTML = "";
+                var outputTable = document.createElement('table');
+                outputTable.innerHTML = document.getElementById("sudoku").innerHTML;
+                document.getElementById("output_table").appendChild(outputTable);
+                var newTable = outputTable.rows;
+                for (var i = 0; i < newTable.length; i++) {
+                    var element = newTable[i].children
+                    for (var j = 0; j < element.length; j++) {
+                        element[j].innerHTML = sud[i][j]
+                    }
+                }
+            } else {
+                validateSudoku(true);
+            }
+        };
+        validateSudoku(true);
+    }
+</script>
