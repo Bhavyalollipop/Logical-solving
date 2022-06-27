@@ -1,284 +1,541 @@
 <!DOCTYPE html>
 
 <head>
-    <style>
-        /* with css reset */
-        * {
-            box-sizing: border-box;
-        }
+  <style>
+    /* with css reset */
+    * {
+      box-sizing: border-box;
+    }
 
-        table {
-            margin: 0 auto;
-        }
+    table {
+      margin: 0 auto;
+    }
 
-        tr:first-child td {
-            border-top-color: black;
-        }
+    tr:first-child td {
+      border-top-color: black;
+    }
 
-        tr:nth-child(3n) td {
-            border-bottom-color: black;
-        }
+    tr:nth-child(3n) td {
+      border-bottom-color: black;
+    }
 
-        td {
-            border: 1px solid lightgrey;
-            height: 40px;
-            width: 40px;
-        }
+    td {
+      border: 1px solid lightgrey;
+      height: 40px;
+      width: 40px;
+    }
 
-        td:first-child {
-            border-left-color: black;
-        }
+    td:first-child {
+      border-left-color: black;
+    }
 
-        td:nth-child(3n) {
-            border-right-color: black;
-        }
+    td:nth-child(3n) {
+      border-right-color: black;
+    }
 
-        input {
-            padding: 0;
-            text-align: center;
-            border: 0;
-            height: 40px;
-            width: 40px;
-            text-align: center;
-        }
+    input {
+      padding: 0;
+      text-align: center;
+      border: 0;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+    }
 
-        input:hover {
-            background: #ffffff;
-        }
-    </style>
+    input:hover {
+      background: #ffffff;
+    }
+  </style>
 </head>
 
 <body>
-    <table id="sudoku">
-        <tbody>
-            <tr>
-                <td><input type="number" value="7" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="6" /></td>
-                <td><input type="number" value="" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="1" /></td>
-                <td><input type="number" value="4" /></td>
-                <td><input type="number" value="5" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="6" /></td>
-                <td><input type="number" value="3" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="2" /></td>
-                <td><input type="number" value="" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="6" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="9" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="2" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="5" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="8" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="9" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="3" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="4" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="5" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="2" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="1" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-            </tr>
-            <tr>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="6" /></td>
-                <td><input type="number" value="1" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="4" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-                <td><input type="number" value="" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <button type="button" onclick="table_to_array('sudoku')">Guess the output</button>
-    <div id="output_table"></div>
+  <table id="sudoku">
+    <tbody>
+      <tr>
+        <td><input type="number" value="6" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="7" /></td>
+        <td><input type="number" value="4" /></td>
+        <td><input type="number" value="1" /></td>
+        <td><input type="number" value="5" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="1" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="4" /></td>
+        <td><input type="number" value="2" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="6" /></td>
+        <td><input type="number" value="3" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="3" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="3" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="6" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="4" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="2" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="8" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="2" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="3" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="1" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="4" /></td>
+        <td><input type="number" value="2" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="5" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="5" /></td>
+        <td><input type="number" value="7" /></td>
+        <td><input type="number" value="4" /></td>
+        <td><input type="number" value="3" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+      <tr>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="6" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="" /></td>
+        <td><input type="number" value="8" /></td>
+        <td><input type="number" value="" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" onclick="table_to_array('sudoku')">
+    Guess the output
+  </button>
+  <div id="output_table"></div>
 </body>
 <script>
-    function table_to_array(table_id) {
-        myData = document.getElementById(table_id).rows
-        my_liste = []
-        for (var i = 0; i < myData.length; i++) {
-            el = myData[i].children
-            my_el = []
-            for (var j = 0; j < el.length; j++) {
-                var gridVal = el[j].getElementsByTagName("input")[0].value?.toString();
-                my_el.push(gridVal || ".");
-            }
-            my_liste.push(my_el)
-
+  function table_to_array(table_id) {
+    myData = document.getElementById(table_id).rows;
+    my_liste = [];
+    for (var i = 0; i < myData.length; i++) {
+      el = myData[i].children;
+      my_el = [];
+      for (var j = 0; j < el.length; j++) {
+        var gridVal = el[j].getElementsByTagName("input")[0].value?.toString();
+        my_el.push(gridVal || ".");
+      }
+      my_liste.push(my_el);
+    }
+    calculateSudoku(my_liste);
+  }
+  const calculateSudoku = (suod) => {
+   
+    const sud =[
+    [
+        "8",
+        "2",
+        "7",
+        ".",
+        "1",
+        "5",
+        ".",
+        "4",
+        "3"
+    ],
+    [
+        "3",
+        ".",
+        "1",
+        "2",
+        "4",
+        "9",
+        ".",
+        "7",
+        "6"
+    ],
+    [
+        ".",
+        ".",
+        ".",
+        "8",
+        ".",
+        ".",
+        ".",
+        "2",
+        "5"
+    ],
+    [
+        "6",
+        ".",
+        ".",
+        ".",
+        ".",
+        ".",
+        "2",
+        ".",
+        "."
+    ],
+    [
+        ".",
+        "1",
+        "8",
+        "3",
+        "9",
+        ".",
+        ".",
+        ".",
+        "."
+    ],
+    [
+        ".",
+        ".",
+        ".",
+        ".",
+        "6",
+        "1",
+        ".",
+        "3",
+        "."
+    ],
+    [
+        ".",
+        "6",
+        "2",
+        ".",
+        ".",
+        "4",
+        "3",
+        ".",
+        "."
+    ],
+    [
+        "1",
+        ".",
+        "5",
+        ".",
+        ".",
+        ".",
+        "4",
+        "8",
+        "."
+    ],
+    [
+        ".",
+        ".",
+        ".",
+        "9",
+        ".",
+        ".",
+        ".",
+        "1",
+        "."
+    ]
+];
+    var reStart = false;
+    const isPossible = (array, value) => {
+      return array.filter((item) => item === value.toString()).length === 0;
+    };
+    //  get col of array
+    const getArrayCol = (j) => {
+      const data = [];
+      for (var i = 0; i < 9; i++) {
+        data.push(sud[i][j]);
+      }
+      return data;
+    };
+    // get box of array
+    const getArrayBox = (row = 3, col = 3, args) => {
+      if (args[0] <= row && args[1] <= col) {
+        const data = [];
+        for (var i = row - 3; i < row; i++) {
+          for (var j = col - 3; j < col; j++) {
+            data.push(sud[i][j]);
+          }
         }
-        calculateSudoku(my_liste);
-    }
-    const calculateSudoku = (sud) => {
-        // const sud = [
-        //     ["5", "3", ".", ".", "7", ".", ".", ".", "."],
-        //     ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-        //     [".", "9", "8", ".", ".", ".", ".", "6", "."],
-        //     ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-        //     ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
-        //     ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-        //     [".", "6", ".", ".", ".", ".", "2", "8", "."],
-        //     [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-        //     [".", ".", ".", ".", "8", ".", ".", "7", "9"],
-        // ];
-        var reStart = false;
-        const isPossible = (array, value) => {
-            return array.filter((item) => item === value.toString()).length === 0;
-        };
-        //  get col of array
-        const getArrayCol = (j) => {
-            const data = [];
-            for (var i = 0; i < 9; i++) {
-                data.push(sud[i][j]);
-            }
-            return data;
-        };
-        // get box of array
-        const getArrayBox = (row = 3, col = 3, args) => {
-            if (args[0] <= row && args[1] <= col) {
-                const data = [];
-                for (var i = row - 3; i < row; i++) {
-                    for (var j = col - 3; j < col; j++) {
-                        data.push(sud[i][j]);
-                    }
-                }
-                return data;
-            }
-            row = col === 9 ? row + 3 : row;
-            col = col === 9 ? 3 : col + 3;
-            return getArrayBox(row, col, args);
-        };
-        var find = 1;
-        var possibleVal = [];
-        // var sudokuRow = 2;
-        const findPossibility = (sudokuRow, find) => {
-            for (var sudokuCol = 0; sudokuCol < 9; sudokuCol++) {
-                if (
-                    sud[sudokuRow][sudokuCol] !== "." ||
-                    !isPossible(sud[sudokuRow], find) ||
-                    !isPossible(getArrayCol(sudokuCol), find) ||
-                    !isPossible(getArrayBox(3, 3, [sudokuRow + 1, sudokuCol + 1]), find)
-                ) {
-                    continue;
-                }
-                possibleVal.push({
-                    row: sudokuRow,
-                    col: sudokuCol,
-                });
-            }
-            if (possibleVal.length === 1) {
-                sud[possibleVal[0].row][possibleVal[0].col] = find.toString();
-                possibleVal = [];
-                reStart = true;
-                return;
-            }
-            possibleVal = [];
-            reStart = false;
-            return;
-        };
-        const updateUponFindings = (sudokuRow) => {
-            while (find <= 9) {
-                findPossibility(sudokuRow, find);
-                find++;
-            }
-            find = 1;
-        };
+        return data;
+      }
+      row = col === 9 ? row + 3 : row;
+      col = col === 9 ? 3 : col + 3;
+      return getArrayBox(row, col, args);
+    };
 
-        const runSudoku = (runFromRow) => {
-            for (var sudokuRow = runFromRow; sudokuRow < 9; sudokuRow++) {
-                updateUponFindings(sudokuRow, find);
-            }
-        };
-        const validateSudoku = (isValid) => {
-            for (var i = 0; i < 9; i++) {
-                for (var j = 0; j < 9; j++) {
-                    if (sud[i][j] !== ".") continue;
-                    runSudoku(i);
-                    isValid = false;
-                }
-                if (reStart) {
-                    break;
-                }
-            }
+    var find = 1;
+    var findSingleBox = 0;
+    var possibleVal = [];
+    // var sudokuRow = 2;
+    const findPossibility = (sudokuRow, find) => {
+      for (var sudokuCol = 0; sudokuCol < 9; sudokuCol++) {
+        if (
+          sud[sudokuRow][sudokuCol] !== "." ||
+          !isPossible(sud[sudokuRow], find) ||
+          !isPossible(getArrayCol(sudokuCol), find) ||
+          !isPossible(getArrayBox(3, 3, [sudokuRow + 1, sudokuCol + 1]), find)
+        ) {
+          continue;
+        }
+        possibleVal.push({
+          row: sudokuRow,
+          col: sudokuCol,
+        });
+      }
+      if (possibleVal.length === 1) {
+        sud[possibleVal[0].row][possibleVal[0].col] = find.toString();
+        possibleVal = [];
+        reStart = true;
+        return;
+      }
+      // console.log(possibleVal,find);
+      possibleVal = [];
+      reStart = false;
+      return;
+    };
+    const findPossibilityCol = (sudokuCol, find) => {
+      for (var sudokuRow = 0; sudokuRow < 9; sudokuRow++) {
+        if (
+          sud[sudokuRow][sudokuCol] !== "." ||
+          !isPossible(sud[sudokuRow], find) ||
+          !isPossible(getArrayCol(sudokuCol), find) ||
+          !isPossible(getArrayBox(3, 3, [sudokuRow + 1, sudokuCol + 1]), find)
+        ) {
+          continue;
+        }
+        possibleVal.push({
+          row: sudokuRow,
+          col: sudokuCol,
+        });
+      }
+      if (possibleVal.length === 1) {
+        sud[possibleVal[0].row][possibleVal[0].col] = find.toString();
+        possibleVal = [];
+        reStart = true;
+        return;
+      }
+      // console.log(possibleVal,find);
+      possibleVal = [];
+      reStart = false;
+      return;
+    };
 
-            if (isValid) {
-                document.getElementById("output_table").innerHTML = "";
-                var outputTable = document.createElement('table');
-                outputTable.innerHTML = document.getElementById("sudoku").innerHTML;
-                document.getElementById("output_table").appendChild(outputTable);
-                var newTable = outputTable.rows;
-                for (var i = 0; i < newTable.length; i++) {
-                    var element = newTable[i].children
-                    for (var j = 0; j < element.length; j++) {
-                        element[j].innerHTML = sud[i][j]
-                    }
-                }
-            } else {
-                validateSudoku(true);
-            }
-        };
+    const findPossibilitySingleBox = (sudokuRow, findSingleBox) => {
+      for (var sudokuBox = 1; sudokuBox <= 9; sudokuBox++) {
+        if (
+          sud[sudokuRow][findSingleBox] !== "." ||
+          !isPossible(sud[sudokuRow], sudokuBox) ||
+          !isPossible(getArrayCol(findSingleBox), sudokuBox) ||
+          !isPossible(
+            getArrayBox(3, 3, [sudokuRow + 1, findSingleBox + 1]),
+            sudokuBox
+          )
+        ) {
+          continue;
+        }
+        possibleVal.push({
+          row: sudokuRow,
+          col: findSingleBox,
+          val: sudokuBox,
+        });
+      }
+      if (possibleVal.length === 1) {
+        sud[possibleVal[0].row][possibleVal[0].col] =
+          possibleVal[0].val.toString();
+
+        possibleVal = [];
+        reStart = true;
+        return;
+      }
+      // console.log(possibleVal);
+      possibleVal = [];
+      reStart = false;
+      return;
+    };
+    const updateUponFindings = (sudokuRow) => {
+      while (find <= 9) {
+        findPossibility(sudokuRow, find);
+        findPossibilityCol(sudokuRow, find);
+        find++;
+      }
+      find = 1;
+    };
+    const updateFindingsonSingleBox = (sudokuRow) => {
+      while (findSingleBox < 9) {
+        findPossibilitySingleBox(sudokuRow, findSingleBox);
+        findSingleBox++;
+      }
+      findSingleBox = 0;
+    };
+
+    var boxVal = [];
+    const loopBoxArr = (row, col, val) => {
+      var loopBox = [],
+        setArray = [];
+      for (var i = row - 3; i < row; i++) {
+        for (var j = col - 3; j < col; j++) {
+          setArray.push(sud[i][j]);
+          if (
+            sud[i][j] !== "." ||
+            !isPossible(sud[i], val) ||
+            !isPossible(getArrayCol(j), val)
+          )
+            continue;
+          loopBox.push({
+            row: i,
+            col: j,
+            val: val,
+          });
+        }
+      }
+      if (!isPossible(setArray, val)) {
+        // console.log(loopBox);
+        loopBox = [];
+      }
+
+      return loopBox;
+    };
+    const createBox = (box, val) => {
+      switch (box) {
+        case 0:
+          boxVal = loopBoxArr(3, 3, val);
+          break;
+        case 1:
+          boxVal = loopBoxArr(3, 6, val);
+          break;
+        case 2:
+          boxVal = loopBoxArr(3, 9, val);
+          break;
+        case 3:
+          boxVal = loopBoxArr(6, 3, val);
+          break;
+        case 4:
+          boxVal = loopBoxArr(6, 6, val);
+          break;
+        case 5:
+          boxVal = loopBoxArr(6, 9, val);
+          break;
+        case 6:
+          boxVal = loopBoxArr(9, 3, val);
+          break;
+        case 7:
+          boxVal = loopBoxArr(9, 6, val);
+          break;
+        case 8:
+          boxVal = loopBoxArr(9, 9, val);
+          break;
+        default:
+          break;
+      }
+    };
+    const findPossibilityBoxWise = (box) => {
+      while (find <= 9) {
+        createBox(box, find);
+        if (boxVal.length === 1) {
+          sud[boxVal[0].row][boxVal[0].col] = boxVal[0].val.toString();
+          reStart = true;
+          find = 1;
+          break;
+        }
+        find++;
+      }
+      reStart = false;
+      find = 1;
+    };
+
+    const runSudoku = (runFromRow) => {
+      for (var sudokuRow = runFromRow; sudokuRow < 9; sudokuRow++) {
+        updateUponFindings(sudokuRow);
+        updateFindingsonSingleBox(sudokuRow);
+        findPossibilityBoxWise(sudokuRow);
+      }
+    };
+    const validateSudoku = (isValid) => {
+      for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+          if (sud[i][j] !== ".") continue;
+          isValid = false;
+          runSudoku(i);
+          if (reStart) {
+            break;
+          }
+        }
+      }
+      if (isValid) {
+        document.getElementById("output_table").innerHTML = "";
+        var outputTable = document.createElement("table");
+        outputTable.innerHTML = document.getElementById("sudoku").innerHTML;
+        document.getElementById("output_table").appendChild(outputTable);
+        var newTable = outputTable.rows;
+        for (var i = 0; i < newTable.length; i++) {
+          var element = newTable[i].children;
+          for (var j = 0; j < element.length; j++) {
+            element[j].innerHTML = sud[i][j];
+          }
+        }
+      } else {
         validateSudoku(true);
-    }
+      }
+    };
+    validateSudoku(true);
+  };
+
+  //     if (isValid) {
+  //       document.getElementById("output_table").innerHTML = "";
+  //       var outputTable = document.createElement("table");
+  //       outputTable.innerHTML = document.getElementById("sudoku").innerHTML;
+  //       document.getElementById("output_table").appendChild(outputTable);
+  //       var newTable = outputTable.rows;
+  //       for (var i = 0; i < newTable.length; i++) {
+  //         var element = newTable[i].children;
+  //         for (var j = 0; j < element.length; j++) {
+  //           element[j].innerHTML = sud[i][j];
+  //         }
+  //       }
+  //     } else {
+  //       validateSudoku(true);
+  //     }
+  //   };
+  //   validateSudoku(true)
+  // };
 </script>
