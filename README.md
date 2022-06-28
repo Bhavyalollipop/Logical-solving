@@ -11,6 +11,7 @@ Calculating average based on categories
  - https://leetcode.com/problems/longest-palindromic-substring/ - leet-longest-palindromic-substring.js
  - https://leetcode.com/problems/add-two-numbers/ - leet-two-linked-list-reverse-code.js
  - https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ - leet-first-and-last-position-of-element-in-sorted-array.js
+ - https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/ - leet-longest-substring-without-repeating-character.js
  
 ## Hard
  - https://leetcode.com/problems/median-of-two-sorted-arrays/ - leet-median-two-sorted-arrays.js
