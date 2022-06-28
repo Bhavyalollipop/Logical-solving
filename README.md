@@ -16,6 +16,7 @@ Calculating average based on categories
 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                                                                                 | [leet-two-linked-list-reverse-code.js](https://github.com/Bhavyalollipop/Logical-solving/blob/main/leet-two-linked-list-reverse-code.js)                                             |
 | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [leet-first-and-last-position-of-element-in-sorted-array.js](https://github.com/Bhavyalollipop/Logical-solving/blob/main/leet-first-and-last-position-of-element-in-sorted-array.js) |
 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)                   | [leet-longest-substring-without-repeating-character.js](https://github.com/Bhavyalollipop/Logical-solving/blob/main/leet-longest-substring-without-repeating-characters)             |
+| [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/) | [leet-zigzag-conversion.js](https://github.com/Bhavyalollipop/Logical-solving/blob/main/leet-zigzag-conversion.js) |
  
 ## Hard
 | Leet Link                                                                                 | Git Solution Link                                                                                                                |
