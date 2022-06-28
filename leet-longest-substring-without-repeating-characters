@@ -1,0 +1,38 @@
+var lengthOfLongestSubstring = function(s) {
+    var i =0,j=0,n = s.length - 1,maxL = 0, maxWord = "", pWord = "";
+  
+    while(i <= n) {
+        if( (n-i) < maxWord.length){
+            break;
+        }
+        var isInclude = false;
+       if(j !== 0) {
+            isInclude =  pWord.includes(s[j]);
+       }
+       
+      
+       if(isInclude) {
+            if(maxWord.length < pWord.length) {
+                maxWord = pWord;
+            }
+            i++;
+            j = i + 1;
+            pWord = s[i];
+            continue;
+       }
+       pWord = pWord + s[j];
+       if(maxWord.length < pWord.length) {
+            maxWord = pWord;
+        }
+       if(j >= n) {
+            i++;
+            j = i + 1;
+            continue;
+       }
+       j++;
+    }
+    return maxWord.length
+    // return { maxWord, l: maxWord.length }
+};
+
+console.log(lengthOfLongestSubstring("dvdf"));
